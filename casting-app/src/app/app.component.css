@@ -1,0 +1,32 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #13341e; /* Цвет фона меню */
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+
+  .right{
+    float: right
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color:#0b2413; 
+  } 
+
+
