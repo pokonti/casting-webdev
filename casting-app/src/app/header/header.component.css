@@ -1,0 +1,65 @@
+* {
+    margin: 3px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    list-style: none;
+    text-decoration: none;
+}
+
+#main{
+  font-family: "Lucida Console", Cursive;
+  font-size: 50px;
+}
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #13341e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% ;
+}
+
+header .logo {
+    font-size: 35px;
+    font-weight: 900;
+    color: white;
+    transition: .5s;
+}
+
+header .logo:hover {
+    transform: scale(1.2);
+}
+
+header nav ul li {
+    position: relative;
+    float: left;
+}
+header nav ul li a {
+    padding: 15px;
+    color:white;
+    font-size: 20px;
+    display: block;
+}
+header nav ul li a:hover {
+    color: white;
+}
+nav ul li ul {
+    position: absolute;
+    left: 0;
+    width: 180px;
+    background: rgb(12, 56, 12);
+    display: none;
+}
+
+nav ul li ul li {
+    width: 100%;
+
+}
+
+nav ul li:hover > ul {
+    display: initial;
+}

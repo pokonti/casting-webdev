@@ -1,0 +1,25 @@
+footer{
+    background-color: white;
+
+}
+.foa{
+    color: #7e8396;
+    text-decoration:none;
+    word-spacing: 10px;
+    font-size: 13px;
+}
+
+.foa:hover{
+    text-decoration: underline;
+}
+
+.meta{
+    color: #7e8396;
+    font-size: 13px;
+}
+
+.page{
+    color:black;
+    font-weight: bold;
+    text-decoration: none;
+}
