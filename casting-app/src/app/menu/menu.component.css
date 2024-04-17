@@ -8,7 +8,7 @@
 }
 
 header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -17,7 +17,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 5% ;
-    box-shadow: 0 5px 10 px black;
 }
 
 header .logo {
@@ -37,13 +36,12 @@ header nav ul li {
 }
 header nav ul li a {
     padding: 15px;
-    color:black;
+    color:white;
     font-size: 20px;
     display: block;
 }
 header nav ul li a:hover {
     color: white;
-    transition: .5s;
 }
 nav ul li ul {
     position: absolute;

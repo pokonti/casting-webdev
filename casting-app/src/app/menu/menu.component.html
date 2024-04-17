@@ -1,12 +1,12 @@
 <header>
-    <a routerLink="/home" class="logo">Casting</a>
+    <a routerLink="/home" routerLinkActive="active" class="logo">Casting</a>
 
     <nav>
         <ul>
-            <li><a routerLink="/form" routerLinkActive="active" ariaCurrentWhenActive="page">Form</a></li>
-            <li><a routerLink="/casting" routerLinkActive="active" ariaCurrentWhenActive="page">Casting &bigtriangledown;</a>
+            <li><a routerLink="/form" routerLinkActive="active">Form</a></li>
+            <li><a>Casting &bigtriangledown;</a>
                 <ul>
-                    <li><a href="">All</a></li>
+                    <li><a routerLink="/casting" routerLinkActive="active">All</a></li>
                     <li><a href="">Modeling</a></li>
                     <li><a href="">Filming</a></li>
                     <li><a href="">Dance</a></li>
@@ -14,7 +14,7 @@
                 </ul>
             </li>
 
-            <li><a href="#">Ads</a></li>
+            <li><a routerLink="/ads" routerLinkActive="active">Ads</a></li>
             <li><a routerLink="/aboutUs" routerLinkActive="active" ariaCurrentWhenActive="page">About us</a></li>
             <li><a href="#">Log in</a></li>
         </ul>
