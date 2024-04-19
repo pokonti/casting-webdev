@@ -1,0 +1,64 @@
+body {
+    background-image: url('https://storage.picsave.pp.ua/cluster1/origin/bb380a5eac3fc8068c7ba52e7e122309.jpg');
+    /* тут будет совсем другая более айестетик фото аэто просто одини из качественных пхото */
+    background-size: cover;
+    opacity: 0.9; 
+}
+
+
+.welcome-box{
+    background-color: rgb(196, 80, 27);
+    border-radius: 20px;
+    margin: 2em auto;
+    padding: 20px;
+    width: 90%;
+    color: whitesmoke;
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+input {
+    font-family: 'Roboto', sans-serif;
+    border: solid 1px #89a6bb;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+  
+.date-field {
+    width: 50px;
+    text-align: center;
+    font-size: 15px;
+}
+  
+.field-inline-block {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;  
+    
+    label {
+      text-align: center;
+    }
+}
+
+
+#survey-form {
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: 700; 
+    width: 100%;
+    padding: .5em;
+    background-color:rgba(12, 56, 12, 0.935);;
+    border-top: 1px solid white;
+    border-bottom: 1px solid rgb(137, 46, 3);
+    margin-top: 2em;
+    text-align: center;
+    display: block;
+}
