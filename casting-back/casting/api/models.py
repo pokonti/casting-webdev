@@ -8,7 +8,8 @@ class Castings(models.Model):
     description = models.TextField()
     photo = models.TextField()
 
-
+def __str__(self) -> str:
+    return self.name
 
 def to_json(self):
     return {
@@ -18,5 +19,4 @@ def to_json(self):
       'photo': self.photo
     }
 
-def __str__(self):
-    return self.name
+
