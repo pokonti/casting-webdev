@@ -8,15 +8,15 @@ class Castings(models.Model):
     description = models.TextField()
     photo = models.TextField()
 
-def __str__(self) -> str:
-    return self.name
+    def __str__(self) -> str:
+        return self.name
 
-def to_json(self):
-    return {
-      'id': self.id,
-      'name': self.name,
-      'description': self.description,
-      'photo': self.photo
-    }
+    def to_json(self):
+        return {
+        'id': self.id,
+        'name': self.name,
+        'description': self.description,
+        'photo': self.photo
+        }
 
 
