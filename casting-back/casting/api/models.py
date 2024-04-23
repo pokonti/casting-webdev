@@ -3,12 +3,10 @@ from django.db import models
 # Create your models here.
 
 
-
-
 class Castings(models.Model):
     name = models.CharField(max_length=300)
     description = models.TextField()
-    photo: models.ImageField(upload_to='imgs/', blank=True, null=True)
+    photo = models.TextField()
 
 
 
@@ -17,7 +15,7 @@ def to_json(self):
       'id': self.id,
       'name': self.name,
       'description': self.description,
-      'photo': self.photo.url
+      'photo': self.photo
     }
 
 def __str__(self):

@@ -6,3 +6,4 @@ from api import views
 urlpatterns = [
     path('castings/', views.get_castings),
 ]
+
