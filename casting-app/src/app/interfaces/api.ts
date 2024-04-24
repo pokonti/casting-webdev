@@ -4,3 +4,10 @@ export interface Casting{
     description: string;
     photo: string;
 }
+
+export interface Position{
+    id: number;
+    name: string;
+    requirements: string;
+    casting: Casting;
+}

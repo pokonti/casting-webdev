@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Casting } from '../interfaces/api';
+import { Casting, Position } from '../interfaces/api';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,19 @@ export class AllservicesService {
     return this.http.get<Casting[]>(`${this.BASE_URL}/castings`)
   }
 
+  getFilteredCastingsByName(name: string) {
+    return this.http.get<Casting[]>(`${this.BASE_URL}/castings`).pipe(
+      map((castings: Casting[]) => {
+        return castings.filter(casting => casting.name.toLowerCase() === name.toLowerCase());
+      })
+    );
+  }
+
+  getCastingDetail(id: number){
+    return this.http.get<Casting>(`${this.BASE_URL}/castings/${id}`)
+  }
+  getPositionsByCasting(id: number){
+    return this.http.get<Position[]>(`${this.BASE_URL}/castings/${id}/positions`)
+  }
 
 }

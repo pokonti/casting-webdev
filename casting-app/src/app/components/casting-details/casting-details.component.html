@@ -1,1 +1,7 @@
-<p>casting-details works!</p>
+<div class="position-cards">
+    <div class="position-card" *ngFor="let position of positions">
+      <h3 class="position-name">{{ position.name }}</h3>
+      <p class="position-requirements">{{ position.requirements }}</p>
+    </div>
+  </div>
+  
