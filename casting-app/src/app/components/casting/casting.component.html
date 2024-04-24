@@ -1,6 +1,10 @@
-<p>casting works!</p>
-<ul>
-    <li *ngFor="let casting of castings">
-        {{casting.name}} <br> {{casting.description}}
+<ul class="card-list">
+    <li *ngFor="let casting of castings" class="card">
+        <img src="{{ casting.photo }}" alt="{{ casting.name }}">
+        <div class="card-content">
+            <h3>{{ casting.name }}</h3>
+            <p>{{ casting.description }}</p>
+            <a href="{{ casting.photo }}" class="button" target="_blank">Learn More</a>
+        </div>
     </li>
 </ul>
