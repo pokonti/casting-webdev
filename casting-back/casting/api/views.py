@@ -61,6 +61,7 @@ def casting_positions(request, id):
 
     return JsonResponse(serializer.data, safe=False, status=200)
   
+  
 
 
 class PositionstListAPIView(APIView):
