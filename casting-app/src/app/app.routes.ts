@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
-import { FormComponent } from './form/form.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { AdsComponent } from './ads/ads.component';
-import { CastingComponent } from './casting/casting.component';
+import { NotFoundComponent } from './components/not-found/not-found.component'; 
+import { HomeComponent } from './components/home/home.component';
+import { FormComponent } from './components/form/form.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { AdsComponent } from './components/ads/ads.component';
+import { CastingComponent } from './components/casting/casting.component';
 import { Observable } from 'rxjs';
-import {ModelingComponent} from "./modeling/modeling.component";
-import {FilmingComponent} from "./filming/filming.component";
-import {DanceComponent} from "./dance/dance.component";
+import {ModelingComponent} from "./components/modeling/modeling.component";
+import {FilmingComponent} from "./components/filming/filming.component";
+import {DanceComponent} from "./components/dance/dance.component";
 
 export const routes: Routes = [
 

@@ -1,28 +1,40 @@
-.footer{
-    background-color: white;
-    position:absolute;
-    bottom: 0;
-    display:block;
-    left: 0;
-}
-.foa{
-    color: #7e8396;
-    text-decoration:none;
-    word-spacing: 10px;
-    font-size: 13px;
+
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
 }
 
-.foa:hover{
-    text-decoration: underline;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.meta{
-    color: #7e8396;
-    font-size: 13px;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.page{
-    color:black;
-    font-weight: bold;
-    text-decoration: none;
+.footer-section {
+    flex: 1;
+    margin-bottom: 30px;
+}
+
+.footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 350px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555;
 }
