@@ -27,7 +27,7 @@ class PositionSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=300, default="")
     requirements = serializers.CharField(max_length=500, allow_blank=True)
-    # casting = CastingSerializer(many = True, read_only = True)     
+   
     def create(self, validated_data):
         instance = Position.objects.create(
             name = validated_data.get('name'),

@@ -55,15 +55,11 @@ def casting_details(request, id):
     
 
 def casting_positions(request, id):
-    try:
-        company = Casting.objects.get(id=id)
-    except Casting.DoesNotExist as e:
-        return JsonResponse({"error": str(e)}, status=404)
-    
-    positions = Position.objects.filter(company=company)
-    serializer = PositionSerializer(positions, many=True)
+    casting = Casting.objects.get(id=id)
+    positions = Position.objects.filter(casting=casting)
+    positions_json = [position.to_json() for position in positions]
+    return JsonResponse(positions_json, safe = False)
 
-    return JsonResponse(serializer.data, safe=False, status=200)
   
 
 
@@ -84,9 +80,9 @@ class PositionstListAPIView(APIView):
 
 
 class PositionsDetailAPIView(APIView):
-    def get(self, request, pk=None):
+    def get(self, request, id=None):
         try:
-            position =  Position.objects.get(id=pk)
+            position = Position.objects.get(id=id)
         except Position.DoesNotExist as e:
             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
         
@@ -95,7 +91,7 @@ class PositionsDetailAPIView(APIView):
     
     def put(self, request,pk=None):
         try:
-            position = Position.objects.get(id=pk)
+            position = Position.objects.get(id=id)
         except Position.DoesNotExist as e:
             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
         
@@ -107,9 +103,9 @@ class PositionsDetailAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
     
 
-    def delete(self, request,pk=None):
+    def delete(self, request,id=None):
         try:
-            position = Position.objects.get(id=pk)
+            position = Position.objects.get(id=id)
         except Position.DoesNotExist as e:
             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
         
