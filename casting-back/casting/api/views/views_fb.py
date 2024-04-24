@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from api.serializers import CastingSerializer, PositionSerializer, PositionSerializer2, AdSerializer
 from rest_framework import status
 from rest_framework.views import APIView
-from .models import Casting, Position, Ad
+from api.models import Casting, Position, Ad
 from rest_framework.decorators import api_view
 import json
 
@@ -17,9 +17,10 @@ def get_castings(request):
         serializer = CastingSerializer(castings, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = CastingSerializer(serializer.data)
+        serializer = CastingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
     # тут по id будет или по position name-> casting/dance/card1, casting/filming/card2????
