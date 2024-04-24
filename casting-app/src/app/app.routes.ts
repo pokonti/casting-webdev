@@ -12,12 +12,36 @@ import {DanceComponent} from "./components/dance/dance.component";
 
 export const routes: Routes = [
 
-    {path : '', redirectTo: 'home', pathMatch: 'full'},
-    {path : 'home',  component:  HomeComponent , title: 'Home page'},
-    {path : 'aboutUs',  component:  AboutUsComponent, title: 'About us'},
-    {path : 'form',  component: FormComponent , title: 'Form page'},
-    {path : 'ads',  component:  AdsComponent , title: 'Ads'},
-    {path : 'casting',  component:  CastingComponent, title: 'Casting'},
+    {
+        path : '', 
+        redirectTo: 'home', 
+        pathMatch: 'full'
+    },
+    {
+        path : 'home',  
+        component:  HomeComponent , 
+        title: 'Home page'
+    },
+    {
+        path : 'aboutUs',  
+        component:  AboutUsComponent, 
+        title: 'About us'
+    },
+    {
+        path : 'form',  
+        component: FormComponent , 
+        title: 'Form page'
+    },
+    {
+        path : 'ads',  
+        component:  AdsComponent , 
+        title: 'Ads'
+    },
+    {
+        path : 'casting',  
+        component:  CastingComponent, 
+        title: 'Casting'
+    },
     {path : 'casting/modeling',  component:  ModelingComponent, title: 'Casting'},
     {path : 'casting/filming',  component:  FilmingComponent, title: 'Casting'},
     {path : 'casting/dance',  component:  DanceComponent, title: 'Casting'},
