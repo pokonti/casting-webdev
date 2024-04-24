@@ -89,7 +89,7 @@ class Ad(models.Model):
     photo = models.TextField()
 
     def __str__(self) -> str:
-        return f'{self.id} {self.name}'
+        return f'{self.id} {self.title}'
 
     def to_json(self):
         return {
