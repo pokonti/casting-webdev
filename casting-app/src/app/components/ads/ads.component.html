@@ -1,1 +1,9 @@
-<p>ads works!</p>
+<ul class="card-list">
+    <li *ngFor="let ad of ads" class="card">
+        <img src="{{ ad.photo }}" alt="{{ ad.title }}">
+        <div class="card-content">
+            <h3>{{ ad.title }}</h3>
+            <p>{{ ad.description }}</p>
+        </div>
+    </li>
+</ul>

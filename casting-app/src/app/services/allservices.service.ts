@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Casting, Position } from '../interfaces/api';
+import { Ad, Casting, Position } from '../interfaces/api';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -29,6 +29,10 @@ export class AllservicesService {
   }
   getPositionsByCasting(id: number){
     return this.http.get<Position[]>(`${this.BASE_URL}/castings/${id}/positions`)
+  }
+
+  getAds(){
+    return this.http.get<Ad[]>(`${this.BASE_URL}/ads`)
   }
 
 }

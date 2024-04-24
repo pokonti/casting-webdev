@@ -11,3 +11,9 @@ export interface Position{
     requirements: string;
     casting: Casting;
 }
+
+export interface Ad{
+    title: string;
+    description: string;
+    photo: string;
+}
