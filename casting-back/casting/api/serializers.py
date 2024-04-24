@@ -44,11 +44,27 @@ class PositionSerializer(serializers.Serializer):
         return instance
 
 
+class AdSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=300, default="")
+    description = serializers.CharField()
+    photo = serializers.CharField(max_length=500, allow_blank=True)
 
-class AdSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ad
-        fields = ('title', 'description', 'photo')
+    def create(self, validated_data):
+        instance = Ad.objects.create(
+            title = validated_data.get('title'),
+            description = validated_data.get('description'),
+            photo = validated_data.get('photo'))
+        return instance
+    
+    def update(self, instance,validated_data ):
+        instance.title = validated_data.get('title')
+        instance.description = validated_data.get('description')
+        instance.photo = validated_data.get('photo')
+        instance.save()
+        return instance
+    
+
+
 
 
 class FormSerializer(serializers.ModelSerializer):
@@ -64,4 +80,3 @@ class PositionSerializer2(serializers.ModelSerializer):
     class Meta:
         model = Position
         fields = ('name', 'requirements', 'casting')
-
