@@ -20,9 +20,10 @@ def get_castings(request):
         serializer = CastingSerializer(castings, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = CastingSerializer(serializer.data)
+        serializer = CastingSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
     
 

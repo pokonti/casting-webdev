@@ -12,14 +12,14 @@
             <label for="first-name">* First Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text" id="first-name" name="first-name" placeholder="Enter your first name" required autofocus>
+            <input class="input-field" type="text"  id="first-name" name="first-name" [(ngModel)]="first_name" placeholder="Enter your first name" required autofocus>
         </div>
         <!-- last name -->
         <div class="labels">
             <label for="last-name">* Last Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+            <input class="input-field" type="text"  id="last-name" name="last-name" [(ngModel)]="last_name" placeholder="Enter your last name" required>
         </div>
 
         <!-- gender -->
@@ -172,7 +172,7 @@
             <textarea id="about-me" name="about-me" rows="4" placeholder="Interesting facts or shooting experience" required></textarea>
         </div>
 
-<!--  -->
+
 
         <h2>Photos</h2>
         <p>Attach your photo and show these emotions by photo- Happy, Sad, Fear and Anger</p>
