@@ -1,187 +1,180 @@
 
-    <div class="welcome-box">
-      <h1 id="title">WELCOME TO MAKE YOUR DREAM COME TRUE!</h1><hr>
-        <p>Tell us about yourself</p>
-    </div>
-
+<div class="welcome-box">
+    <h1 id="title">WELCOME TO MAKE YOUR DREAM COME TRUE!</h1><hr>
+    <p>Tell us about yourself</p>
+</div>
 
 <div class="container">
-<form id="survey-form" method="GET">
-    <h2>General Information</h2>
-    <!-- first name -->
-    <div class="labels">
-        <label id="name-label" for="name">* First Name</label>
-    </div>  
-    <div class="input-tab">
-        <input class="input-field" type="text" id="name" name="name" placeholder="Enter your fist name" required autofocus>
-    </div>
-    <!-- last name -->
-    <div class="labels">
-        <label id="name-label" for="name">* Last Name</label>
-    </div>  
-    <div class="input-tab">
-        <input class="input-field" type="text" id="name" name="name" placeholder="Enter your last name" required>
-    </div>
-
-
-
-    
-
-    <div class="labels">
-        <label>*Gender</label>
-    </div>
-    <div class="input-tab">
-        <input type="radio" name="radio-button" value="male">Male<br>
-        <input type="radio" name="radio-button" value="female">Female<br>
-    </div>
-
-    
-
-    <div class="labels">
-        <label>*Date of Birth</label>
-    </div>
-    <div class="field-inline-block">
-        <label>DD</label>
-            <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field"  required/>
-    </div>/
-    <div class="field-inline-block">
-        <label>MM</label>
-            <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field" required/>
-    </div>/
-    <div class="field-inline-block">
-        <label>YYYY</label>
-            <input type="text" pattern="[0-9]*" maxlength="4" size="4" class="date-field date-field--year" required/>
-    </div>
-
-
-    <div class="labels">
-        <label>*Nationality</label>
-    </div>
-    <div class='form-line'>
-            <select size=1 id='nationality' required>
-                <option value='0'>not specified</option>
-                <option value='1'>Kazakhs</option>
-                <option value='2'>Russian</option>
-                <option value='3'>American</option>
-                <option value='4'>Armenian</option>
-                <option value='5'>Azerbaijani</option>
-                <option value='6'>Bashkir</option>
-                <option value='7'>Belarusian</option>
-                <option value='8'>Greek</option>
-                <option value='9'>Dunganin</option>
-                <option value='10'>a Jew</option>
-                <option value='11'>Ingush</option>
-                <option value='12'>Kyrgyz</option>
-                <option value='13'>Kurd</option>
-                <option value='14'>Moldavan</option>
-                <option value='15'>Mordva</option>
-                <option value='16'>German</option>
-                <option value='17'>Pole</option>
-                <option value='18'>Tajik</option>
-                <option value='19'>Tatar</option>
-                <option value='20'>Turish</option>
-                <option value='21'>Uzbek</option>
-                <option value='22'>Ukrainian</option>
-                <option value='23'>Chechen</option>
-                <option value='24'>Chuvash</option>
-                <option value='25'>Georgians</option>
-                <option value='27'>Another</option>
-            </select>
-    </div>
-
-
-
-    <h2>Contact data</h2>
-        <!-- email address -->
-    <div class="labels">
-        <label id="email-label" for="email">* Email</label></div>
-    <div class="input-tab">
-    <input class="input-field" type="email" id="email" name="email" placeholder="email@email.com" required>
-    </div>
-
-    <div class="labels">
-        <label id="phone-number" for="phone">*Phone number</label>
-    </div>  
-    <div class="input-tab">
-        <input class="input-field" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-    </div>
-    <h2>Social Media</h2>
-
-
-    <div class="labels">
-        <label id="insta" for="insta">*Instagram <i class="fa-brands fa-instagram"></i></label>
-    </div> 
-    <div class='form-val'>
-        <img src="" alt="">
-        <input  type='text' class='smm s-instagram' id='instagram' value='' >
-    </div>
-
-
-    <div class="labels">
-        <label id="facebook" for="facebook">*Facebook <i class="fa-brands fa-facebook"></i></label>
-        </div> 
-        <div class='form-val'>
-            <img src="" alt="">
-            <input  type='text' class='facebook' id='facebook' value='' >
-    </div>
-
-
-
-    <div class="labels">
-        <label id="facebook" for="facebook">*TikTok <i class="fa-brands fa-tiktok"></i></label>
-        </div> 
-        <div class='form-val'>
-            <img src="" alt="">
-            <input  type='text' class='facebook' id='facebook' value='' >
-    </div>
-    <h2>Activity</h2>
-    <div class="labels">
-        <label id="profession" for="">* Profession or occupation</label>
-    </div>  
-    <div class="input-tab">
-        <input class="profession" type="text" name="name" required >
-    </div>
-
-    <div class="labels">
-        <label>*Knowledge of languages <i class="fa-solid fa-language"></i></label></div>
-    <div class="input-tab">
-        <input type="checkbox" name="kz" value="">Kazakh<br>
-        <input type="checkbox" name="eng" value="">English<br>
-        <input type="checkbox" name="rus" value="">Russian<br>
-    </div> 
-        <input  type='text' class='facebook' id='facebook' value='' placeholder="Other languages" >       
-    
-
-    <div class="labels">
-        <label id="skills-label" for="name">* Skills and abilities</label>
-    </div>  
+    <form id="survey-form" method="GET">
+        <h2>General Information</h2>
+        <!-- first name -->
+        <div class="labels">
+            <label id="name-label" for="name">* First Name</label>
+        </div>  
         <div class="input-tab">
-        <input class="skills" type="text" name="name"required>
+            <input class="input-field" type="text" id="name" name="name" placeholder="Enter your fist name" required autofocus>
+        </div>
+        <!-- last name -->
+        <div class="labels">
+            <label id="name-label" for="name">* Last Name</label>
+        </div>  
+        <div class="input-tab">
+            <input class="input-field" type="text" id="name" name="name" placeholder="Enter your last name" required>
         </div>
 
-    <div class="labels">
-        <label id="about-label" for="name">ABOUT ME</label>
-    </div>  
+
+        <div class="labels">
+            <label>*Gender</label>
+        </div>
         <div class="input-tab">
-        <input class="about-me" type="text" name="name"required placeholder="Interesting facts or shooting experience ">
+            <input type="radio" name="radio-button" value="male">Male<br>
+            <input type="radio" name="radio-button" value="female">Female<br>
+        </div>
+
+        
+
+        <div class="labels">
+            <label>*Date of Birth</label>
+        </div>
+        <div class="field-inline-block">
+            <label>DD</label>
+                <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field"  required/>
+        </div>/
+        <div class="field-inline-block">
+            <label>MM</label>
+                <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field" required/>
+        </div>/
+        <div class="field-inline-block">
+            <label>YYYY</label>
+                <input type="text" pattern="[0-9]*" maxlength="4" size="4" class="date-field date-field--year" required/>
+        </div>
+
+
+        <div class="labels">
+            <label>*Nationality</label>
+        </div>
+        <div class='form-line'>
+                <select size=1 id='nationality' required>
+                    <option value='0'>not specified</option>
+                    <option value='1'>Kazakhs</option>
+                    <option value='2'>Russian</option>
+                    <option value='3'>American</option>
+                    <option value='4'>Armenian</option>
+                    <option value='5'>Azerbaijani</option>
+                    <option value='6'>Bashkir</option>
+                    <option value='7'>Belarusian</option>
+                    <option value='8'>Greek</option>
+                    <option value='9'>Dunganin</option>
+                    <option value='10'>a Jew</option>
+                    <option value='11'>Ingush</option>
+                    <option value='12'>Kyrgyz</option>
+                    <option value='13'>Kurd</option>
+                    <option value='14'>Moldavan</option>
+                    <option value='15'>Mordva</option>
+                    <option value='16'>German</option>
+                    <option value='17'>Pole</option>
+                    <option value='18'>Tajik</option>
+                    <option value='19'>Tatar</option>
+                    <option value='20'>Turish</option>
+                    <option value='21'>Uzbek</option>
+                    <option value='22'>Ukrainian</option>
+                    <option value='23'>Chechen</option>
+                    <option value='24'>Chuvash</option>
+                    <option value='25'>Georgians</option>
+                    <option value='27'>Another</option>
+                </select>
+        </div>
+
+
+
+        <h2>Contact data</h2>
+            <!-- email address -->
+        <div class="labels">
+            <label id="email-label" for="email">* Email</label></div>
+        <div class="input-tab">
+        <input class="input-field" type="email" id="email" name="email" placeholder="email@email.com" required>
+        </div>
+
+        <div class="labels">
+            <label id="phone-number" for="phone">*Phone number</label>
+        </div>  
+        <div class="input-tab">
+            <input class="input-field" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <h2>Social Media</h2>
+
+
+        <div class="labels">
+            <label id="insta" for="insta">*Instagram <i class="fa-brands fa-instagram"></i></label>
+        </div> 
+        <div class='form-val'>
+            <img src="" alt="">
+            <input  type='text' class='smm s-instagram' id='instagram' value='' >
+        </div>
+
+
+        <div class="labels">
+            <label id="facebook" for="facebook">*Facebook <i class="fa-brands fa-facebook"></i></label>
+        </div> 
+        <div class='form-val'>
+            <img src="" alt="">
+            <input  type='text' class='facebook' id='facebook' value='' >
+        </div>
+
+
+
+        <div class="labels">
+            <label id="facebook" for="facebook">*TikTok <i class="fa-brands fa-tiktok"></i></label>
+        </div> 
+        <div class='form-val'>
+            <img src="" alt="">
+            <input  type='text' class='facebook' id='facebook' value='' >
+        </div>
+
+        <h2>Activity</h2>
+        <div class="labels">
+            <label id="profession" for="">* Profession or occupation</label>
+        </div>  
+        <div class="input-tab">
+            <input class="profession" type="text" name="name" required >
+        </div>
+
+        <div class="labels">
+            <label>*Knowledge of languages <i class="fa-solid fa-language"></i></label></div>
+        <div class="input-tab">
+            <input type="checkbox" name="kz" value="">Kazakh<br>
+            <input type="checkbox" name="eng" value="">English<br>
+            <input type="checkbox" name="rus" value="">Russian<br>
+        </div> 
+            <input  type='text' class='facebook' id='facebook' value='' placeholder="Other languages" >       
+        
+
+        <div class="labels">
+            <label id="skills-label" for="name">* Skills and abilities</label>
+        </div>  
+        <div class="input-tab">
+            <input class="skills" type="text" name="name"required>
+        </div>
+
+        <div class="labels">
+            <label id="about-label" for="name">ABOUT ME</label>
+        </div>  
+        <div class="input-tab">
+            <input class="about-me" type="text" name="name"required placeholder="Interesting facts or shooting experience ">
         </div>
 
 
 
         <h2>Photos</h2>
         <p>Attach your photo and show these emotions by photo- Happy, Sad, Fear and Anger</p>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="photo" id="photo">
-    </form>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="photo" id="photo">
+        </form>
 
         <h2>Video</h2>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="photo" id="photo">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="photo" id="photo">
+        </form>
     </form>
-    
-
-
-
-</form>
 </div>
 <app-footer></app-footer>
