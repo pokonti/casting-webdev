@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http.response import HttpResponse, JsonResponse
 from rest_framework.response import Response
-from api.serializers import CastingSerializer, PositionSerializer
+from api.serializers import CastingSerializer, PositionSerializer, PositionSerializer2
 from rest_framework import status
 from rest_framework.views import APIView
 from .models import Casting,Position
@@ -56,12 +56,12 @@ def casting_details(request, id):
 
 def casting_positions(request, id):
     try:
-        company = Casting.objects.get(id=id)
+        casting = Casting.objects.get(id=id)
     except Casting.DoesNotExist as e:
         return JsonResponse({"error": str(e)}, status=404)
     
-    positions = Position.objects.filter(company=company)
-    serializer = PositionSerializer(positions, many=True)
+    positions = Position.objects.filter(casting=casting)
+    serializer = PositionSerializer2(positions, many=True)
 
     return JsonResponse(serializer.data, safe=False, status=200)
   
@@ -90,7 +90,7 @@ class PositionsDetailAPIView(APIView):
         except Position.DoesNotExist as e:
             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
         
-        serializer = PositionSerializer(position)
+        serializer = PositionSerializer2(position)
         return Response(serializer.data)
     
     def put(self, request,pk=None):
@@ -99,7 +99,7 @@ class PositionsDetailAPIView(APIView):
         except Position.DoesNotExist as e:
             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
         
-        serializer = PositionSerializer(instance=position, data=request.data)
+        serializer = PositionSerializer2(instance=position, data=request.data)
     
         if serializer.is_valid():
             serializer.save()
@@ -115,3 +115,5 @@ class PositionsDetailAPIView(APIView):
         
         position.delete()
         return Response({"deleted": True})
+
+

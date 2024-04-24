@@ -32,7 +32,7 @@ class PositionSerializer(serializers.Serializer):
         instance = Position.objects.create(
             name = validated_data.get('name'),
             description = validated_data.get('description'),
-            # casting=КАСТТЫ НЕ ЗНАЮ КАК СВЯЗАТЬ 
+            # casting= CastingSerializer(),
         )
         return instance
     
@@ -47,16 +47,21 @@ class PositionSerializer(serializers.Serializer):
 
 class AdSerializer(serializers.ModelSerializer):
     class Meta:
-        model: Ad
+        model = Ad
         fields = ('title', 'description', 'photo')
 
 
 class FormSerializer(serializers.ModelSerializer):
     class Meta:
-        model: Form
+        model = Form
         fields = ('first_name', 'last_name', 'gender','date_of_birth_day','date_of_birth_month','date_of_birth_year','nationality',
                   'email','phone','instagram','facebook','tiktok','profession','language_kz','language_eng','language_rus','other_languages',
                   'skills','about_me','photo','video','appearance_type','weight','height','clothing_size','eye_color','hair_color','individual_features')
         
 
+class PositionSerializer2(serializers.ModelSerializer):
+    casting = CastingSerializer()
+    class Meta:
+        model = Position
+        fields = ('name', 'requirements', 'casting')
 
