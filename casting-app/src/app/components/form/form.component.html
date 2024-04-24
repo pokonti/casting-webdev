@@ -5,34 +5,33 @@
 </div>
 
 <div class="container">
-    <form id="survey-form" method="GET">
+    <form id="survey-form" method="POST">
         <h2>General Information</h2>
         <!-- first name -->
         <div class="labels">
-            <label id="name-label" for="name">* First Name</label>
+            <label for="first-name">* First Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text" id="name" name="name" placeholder="Enter your fist name" required autofocus>
+            <input class="input-field" type="text" id="first-name" name="first-name" placeholder="Enter your first name" required autofocus>
         </div>
         <!-- last name -->
         <div class="labels">
-            <label id="name-label" for="name">* Last Name</label>
+            <label for="last-name">* Last Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text" id="name" name="name" placeholder="Enter your last name" required>
+            <input class="input-field" type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
         </div>
 
-
+        <!-- gender -->
         <div class="labels">
             <label>*Gender</label>
         </div>
         <div class="input-tab">
-            <input type="radio" name="radio-button" value="male">Male<br>
-            <input type="radio" name="radio-button" value="female">Female<br>
+            <input type="radio" name="gender" value="male">Male<br>
+            <input type="radio" name="gender" value="female">Female<br>
         </div>
 
-        
-
+         <!-- birth -->
         <div class="labels">
             <label>*Date of Birth</label>
         </div>
@@ -50,11 +49,12 @@
         </div>
 
 
+        <!-- nationality -->
         <div class="labels">
             <label>*Nationality</label>
         </div>
         <div class='form-line'>
-                <select size=1 id='nationality' required>
+            <select size=1 id='nationality' name="nationality" required>
                     <option value='0'>not specified</option>
                     <option value='1'>Kazakhs</option>
                     <option value='2'>Russian</option>
@@ -90,13 +90,15 @@
         <h2>Contact data</h2>
             <!-- email address -->
         <div class="labels">
-            <label id="email-label" for="email">* Email</label></div>
+            <label for="email">* Email</label>
+        </div>
         <div class="input-tab">
-        <input class="input-field" type="email" id="email" name="email" placeholder="email@email.com" required>
+            <input class="input-field" type="email" id="email" name="email" placeholder="email@email.com" required>
         </div>
 
+        <!-- phone number -->
         <div class="labels">
-            <label id="phone-number" for="phone">*Phone number</label>
+            <label for="phone">*Phone number</label>
         </div>  
         <div class="input-tab">
             <input class="input-field" type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
@@ -105,40 +107,44 @@
 
 
         <div class="labels">
-            <label id="insta" for="insta">*Instagram <i class="fa-brands fa-instagram"></i></label>
+            <label for="instagram">*Instagram <i class="fa-brands fa-instagram"></i></label>
         </div> 
         <div class='form-val'>
-            <img src="" alt="">
-            <input  type='text' class='smm s-instagram' id='instagram' value='' >
+            <input  type='text' class='smm s-instagram' id='instagram' name="instagram" value='' >
         </div>
 
 
         <div class="labels">
-            <label id="facebook" for="facebook">*Facebook <i class="fa-brands fa-facebook"></i></label>
+            <label for="facebook">*Facebook <i class="fa-brands fa-facebook"></i></label>
         </div> 
         <div class='form-val'>
-            <img src="" alt="">
-            <input  type='text' class='facebook' id='facebook' value='' >
+            <input  type='text' class='facebook' id='facebook' name="facebook" value='' >
         </div>
 
 
 
         <div class="labels">
-            <label id="facebook" for="facebook">*TikTok <i class="fa-brands fa-tiktok"></i></label>
+            <label for="tiktok">*TikTok <i class="fa-brands fa-tiktok"></i></label>
         </div> 
         <div class='form-val'>
-            <img src="" alt="">
-            <input  type='text' class='facebook' id='facebook' value='' >
+            <input  type='text' class='facebook' id='tiktok' name="tiktok" value='' >
         </div>
+
+
+
+
 
         <h2>Activity</h2>
+        <!-- profession -->
         <div class="labels">
             <label id="profession" for="">* Profession or occupation</label>
-        </div>  
+        </div>
         <div class="input-tab">
             <input class="profession" type="text" name="name" required >
         </div>
 
+
+        <!-- languages -->
         <div class="labels">
             <label>*Knowledge of languages <i class="fa-solid fa-language"></i></label></div>
         <div class="input-tab">
@@ -148,6 +154,7 @@
         </div> 
             <input  type='text' class='facebook' id='facebook' value='' placeholder="Other languages" >       
         
+            <!-- skills -->
 
         <div class="labels">
             <label id="skills-label" for="name">* Skills and abilities</label>
@@ -156,14 +163,16 @@
             <input class="skills" type="text" name="name"required>
         </div>
 
+        <!-- about-me -->
+
         <div class="labels">
             <label id="about-label" for="name">ABOUT ME</label>
-        </div>  
+        </div> 
         <div class="input-tab">
-            <input class="about-me" type="text" name="name"required placeholder="Interesting facts or shooting experience ">
+            <textarea id="about-me" name="about-me" rows="4" placeholder="Interesting facts or shooting experience" required></textarea>
         </div>
 
-
+<!--  -->
 
         <h2>Photos</h2>
         <p>Attach your photo and show these emotions by photo- Happy, Sad, Fear and Anger</p>
@@ -175,6 +184,88 @@
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <input type="file" name="photo" id="photo">
         </form>
+
+        <h2>External data</h2>
+        <div class="labels">
+            <label for="appearance-type">Appearance Type</label>
+        </div>
+        <div class="input-tab">
+            <select id="appearance-type" name="appearance-type">
+                <option value="" selected disabled hidden>Select appearance type</option>
+                <option value="asian">Asian</option>
+                <option value="afro">Afro</option>
+                <option value="eurasian">Eurasian</option>
+                <option value="european">European</option>
+            </select>
+        </div>
+
+        <div class="labels">
+            <label for="weight">Weight (kg)</label>
+        </div>
+
+        <div class="input-tab">
+            <input type="number" id="weight" name="weight" min="0" required>
+        </div>
+
+        <div class="labels">
+            <label for="height">Height (cm)</label>
+        </div>
+        <div class="input-tab">
+            <input type="number" id="height" name="height" min="0" required>
+        </div>
+        <div class="labels">
+            <label for="clothing-size">Clothing Size</label>
+        </div>
+        <div class="input-tab">
+            <select id="clothing-size" name="clothing-size">
+                <option value="" selected disabled hidden>Select clothing size</option>
+                <option value="xxs">XXS</option>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+                <option value="xxxl">XXXL</option>
+            </select>
+        </div>
+
+        <div class="labels">
+            <label for="eye-color">Eye Color</label>
+        </div>
+        <div class="input-tab">
+            <input type="text" id="eye-color" name="eye-color">
+        </div>
+        
+        <div class="labels">
+            <label for="hair-color">Hair Color</label>
+        </div>
+        <div class="input-tab">
+            <input type="text" id="hair-color" name="hair-color">
+        </div>
+
+
+        <div class="labels">
+            <label for="individual-features">Individual Features</label>
+        </div>
+        <div class="input-tab">
+            <textarea id="individual-features" name="individual-features" rows="4" placeholder="Scars, tattoos, piercings, speech defects, etc."></textarea>
+        </div>
+
+        <div class="submit-btn">
+            <button type="submit">Submit</button>
+        </div>
+
+
+
     </form>
 </div>
 <app-footer></app-footer>
+
+<!-- <script>
+    function showNotification() {
+        alert("Спасибо большое, мы вас ждем, наша звездочка!");
+    }
+</script> -->
+
+

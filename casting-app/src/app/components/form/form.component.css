@@ -1,13 +1,4 @@
-/* body {
-    background-image: url('https://storage.picsave.pp.ua/cluster1/origin/bb380a5eac3fc8068c7ba52e7e122309.jpg'); */
-    /* тут будет совсем другая более айестетик фото аэто просто одини из качественных пхото */
-    /* background-size: cover;
-    
-    opacity: 0.9; 
-} */
-
-
-.welcome-box{
+.welcome-box {
     background-color: #efdecd;
     border-radius: 20px;
     margin: 2em auto;
@@ -16,39 +7,12 @@
     text-align: center;
 }
 .container {
-    margin-bottom: 50px;
-}
-label {
-    display: block;
-}
-input {
-    font-family: 'Roboto', sans-serif;
-    border: solid 1px #89a6bb;
-    padding: 0.5rem;
-    border-radius: 3px;
-}
-  
-.date-field {
-    width: 50px;
-    text-align: center;
-    font-size: 15px;
-}
-  
-.field-inline-block {
-    display: inline-block;
-    margin-right: 5px;
-    margin-left: 5px;  
-    
-    label {
-      text-align: center;
-    }
-}
-
-
-#survey-form {
-    margin: 0 auto;
-    width: 80%;
-    padding: 10px;
+    margin: 2em auto;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -63,4 +27,56 @@ h2 {
     margin-top: 2em;
     text-align: center;
     display: block;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+.submit-btn {
+    text-align: center;
+}
+.submit-btn button {
+    padding: 0.5em 2em;
+    background-color: rgb(141, 226, 197);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.submit-btn button:hover {
+    background-color: #45a049;
+}
+
+.field-inline-block {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;  
+    
+    label {
+      text-align: center;
+    }
 }
