@@ -6,10 +6,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http.response import HttpResponse, JsonResponse
 from rest_framework.response import Response
-from api.serializers import CastingSerializer, PositionSerializer, PositionSerializer2
+from api.serializers import CastingSerializer, PositionSerializer, PositionSerializer2, AdSerializer
 from rest_framework import status
 from rest_framework.views import APIView
-from .models import Casting,Position
+from .models import Casting,Position,Ad
 from rest_framework.decorators import api_view 
 import json
 
@@ -87,14 +87,14 @@ class PositionstListAPIView(APIView):
 class PositionsDetailAPIView(APIView):
     def get(self, request, id=None):
         try:
-            position = Position.objects.get(id=id)
+            position =  Position.objects.get(id=id)
         except Position.DoesNotExist as e:
             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
         
         serializer = PositionSerializer2(position)
         return Response(serializer.data)
     
-    def put(self, request,pk=None):
+    def put(self, request,id=None):
         try:
             position = Position.objects.get(id=id)
         except Position.DoesNotExist as e:
@@ -118,3 +118,14 @@ class PositionsDetailAPIView(APIView):
         return Response({"deleted": True})
 
 
+@api_view(["GET","POST"])
+def get_ads(request):
+    if request.method == 'GET':
+        ad = Ad.objects.all()
+        serializer = AdSerializer(ad, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = AdSerializer(serializer.data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
