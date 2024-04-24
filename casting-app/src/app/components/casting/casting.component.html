@@ -4,7 +4,7 @@
         <div class="card-content">
             <h3>{{ casting.name }}</h3>
             <p>{{ casting.description }}</p>
-            <a href="{{ casting.photo }}" class="button" target="_blank">Learn More</a>
+            <a [routerLink]="['/casting', casting.id]" class="button">Learn More</a>
         </div>
     </li>
 </ul>
