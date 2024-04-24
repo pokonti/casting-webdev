@@ -4,9 +4,9 @@ from django.db import models
 
 
 class Casting(models.Model):
-    name = models.CharField(max_length=300)
-    description = models.TextField()
-    photo = models.TextField()
+    name = models.CharField(max_length=300, default="")
+    description = models.TextField(blank=True)
+    photo = models.TextField(blank=True)
 
     def __str__(self) -> str:
         return self.name
@@ -22,6 +22,7 @@ class Casting(models.Model):
 class Position(models.Model):
     name = models.CharField(max_length=300)
     requirements = models.TextField()
+    casting = models.ForeignKey(Casting, related_name='positions', on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name
@@ -31,6 +32,7 @@ class Position(models.Model):
         'id': self.id,
         'name': self.name,
         'requirements': self.requirements,
+        'casting': self.casting,
     }
 
 
@@ -63,7 +65,7 @@ class Form(models.Model):
     eye_color = models.CharField(max_length=50)
     hair_color = models.CharField(max_length=50)
     individual_features = models.TextField()
-    casting = models.ForeignKey(Casting, related_name='castings', on_delete=models.CASCADE)
+    # casting = models.ForeignKey(Casting, related_name='castings', on_delete=models.CASCADE)
 
     def __str__(self) -> str:
             return self.id + " applicant"
