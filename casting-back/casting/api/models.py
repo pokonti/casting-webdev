@@ -6,7 +6,6 @@ from django.db import models
 class Casting(models.Model):
     name = models.CharField(max_length=300)
     description = models.TextField()
-    requirements = models.TextField()
     photo = models.TextField()
 
     def __str__(self) -> str:
@@ -17,8 +16,21 @@ class Casting(models.Model):
         'id': self.id,
         'name': self.name,
         'description': self.description,
-        'requirements': self.requirements,
         'photo': self.photo
+    }
+
+class Position(models.Model):
+    name = models.CharField(max_length=300)
+    requirements = models.TextField()
+
+    def __str__(self) -> str:
+        return self.name
+
+    def to_json(self):
+        return {
+        'id': self.id,
+        'name': self.name,
+        'requirements': self.requirements,
     }
 
 
