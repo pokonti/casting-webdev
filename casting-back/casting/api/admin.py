@@ -5,3 +5,4 @@ admin.site.register(Casting)
 admin.site.register(Position)
 admin.site.register(Form)
 admin.site.register(Ad)
+
