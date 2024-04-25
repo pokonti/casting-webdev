@@ -44,7 +44,7 @@ def casting_details(request, id):
         if serializer.is_valid():
             serializer.save()# update data...
             return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+        return Response(serializer.errors, status=400)
 
     elif request.method  == 'DELETE':
         casting.delete()
