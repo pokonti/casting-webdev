@@ -17,3 +17,14 @@ export interface Ad{
     description: string;
     photo: string;
 }
+
+export class Profile {
+    first_name?: string;
+    last_name?: string;
+    gender?: string;
+    dd!: number;
+    mm!: number;
+    yyy!: number;
+
+    
+}

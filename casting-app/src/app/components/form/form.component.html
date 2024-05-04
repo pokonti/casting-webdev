@@ -9,17 +9,17 @@
         <h2>General Information</h2>
         <!-- first name -->
         <div class="labels">
-            <label for="first-name">* First Name</label>
+            <label>* First Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text"  id="first-name" name="first-name" [(ngModel)]="first_name" placeholder="Enter your first name" required autofocus>
+            <input class="input-field" type="text" name="first_name" [(ngModel)]="first_name"  [ngModelOptions]="{standalone: true}" placeholder="Enter your first name" required autofocus>
         </div>
         <!-- last name -->
         <div class="labels">
-            <label for="last-name">* Last Name</label>
+            <label>* Last Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text"  id="last-name" name="last-name" [(ngModel)]="last_name" placeholder="Enter your last name" required>
+            <input class="input-field" type="text" [(ngModel)]="last_name" name="last_name" [ngModelOptions]="{standalone: true}" placeholder="Enter your last name" required>
         </div>
 
         <!-- gender -->
@@ -27,30 +27,35 @@
             <label>*Gender</label>
         </div>
         <div class="input-tab">
-            <input type="radio" name="gender" value="male">Male<br>
-            <input type="radio" name="gender" value="female">Female<br>
+            <select [(ngModel)]="gender" name="gender" [ngModelOptions]="{standalone: true}">
+                @for(g of genders; track $index){
+                    <option [value]="g">
+                        {{g}}
+                    </option>
+                }
+            </select>
         </div>
 
          <!-- birth -->
-        <div class="labels">
+        <!-- <div class="labels">
             <label>*Date of Birth</label>
         </div>
         <div class="field-inline-block">
             <label>DD</label>
-                <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field"  required/>
+                <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field" [(ngModel)]="dd" name="dd"  [ngModelOptions]="{standalone: true}" required/>
         </div>/
         <div class="field-inline-block">
             <label>MM</label>
-                <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field" required/>
+                <input type="text" pattern="[0-9]*" maxlength="2" size="2" class="date-field" [(ngModel)]="mm"  name="mm"  [ngModelOptions]="{standalone: true}" required/>
         </div>/
         <div class="field-inline-block">
             <label>YYYY</label>
-                <input type="text" pattern="[0-9]*" maxlength="4" size="4" class="date-field date-field--year" required/>
-        </div>
+                <input type="text" pattern="[0-9]*" maxlength="4" size="4" class="date-field date-field--year" [(ngModel)]="yyyy"  name="yyyy"   [ngModelOptions]="{standalone: true}" required/>
+        </div> -->
 
 
         <!-- nationality -->
-        <div class="labels">
+        <!-- <div class="labels">
             <label>*Nationality</label>
         </div>
         <div class='form-line'>
@@ -82,7 +87,7 @@
                     <option value='24'>Chuvash</option>
                     <option value='25'>Another</option>
                 </select>
-        </div>
+        </div> -->
 
         <!-- <div class="labels">
             <label for="choosing-cast">Casting:</label>
@@ -270,8 +275,9 @@
         </div> --> 
 
 
-
+        <button (click)="addProfile()">Send</button>
     </form>
+
 </div>
 <app-footer></app-footer>
 
