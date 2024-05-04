@@ -2,6 +2,7 @@
     <div class="position-card" *ngFor="let position of positions">
       <h3 class="position-name">{{ position.name }}</h3>
       <p class="position-requirements">{{ position.requirements }}</p>
+      <a [routerLink]="['/form']" class="button">Apply</a>
     </div>
   </div>
   

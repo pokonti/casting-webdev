@@ -67,16 +67,18 @@ class AdSerializer(serializers.Serializer):
 
 
 
-class FormSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Form
-        fields = ('first_name', 'last_name', 'gender','date_of_birth_day','date_of_birth_month','date_of_birth_year','nationality',
-                  'email','phone','instagram','facebook','tiktok','profession','language_kz','language_eng','language_rus','other_languages',
-                  'skills','about_me','photo','video','appearance_type','weight','height','clothing_size','eye_color','hair_color','individual_features')
-        
+    
 
 class PositionSerializer2(serializers.ModelSerializer):
     casting = CastingSerializer()
     class Meta:
         model = Position
         fields = ('name', 'requirements', 'casting')
+
+
+class FormSerializer(serializers.ModelSerializer):
+    positon = PositionSerializer2()
+    class Meta:
+        model = Form
+        fields = "_all_"
+    

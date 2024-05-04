@@ -29,9 +29,12 @@ export const routes: Routes = [
         title: 'About us'
     },
     {
+        path : 'profile',  
+        component: FormComponent , 
+    },
+    {
         path : 'form',  
         component: FormComponent , 
-        title: 'Form page'
     },
     {
         path : 'ads',  
