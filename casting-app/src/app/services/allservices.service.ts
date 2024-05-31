@@ -31,6 +31,10 @@ export class AllservicesService {
     return this.http.get<Position[]>(`${this.BASE_URL}/castings/${id}/positions`)
   }
 
+  getPositionById(id: number){
+    return this.http.get<Position>(`${this.BASE_URL}/positions/${id}`)
+  }
+
   getAds(){
     return this.http.get<Ad[]>(`${this.BASE_URL}/ads`)
   }

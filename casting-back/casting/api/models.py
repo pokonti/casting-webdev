@@ -25,7 +25,7 @@ class Position(models.Model):
     casting = models.ForeignKey(Casting, related_name='positions', on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.id} - {self.name}"
 
     def to_json(self):
         return {
@@ -65,10 +65,10 @@ class Form(models.Model):
     # eye_color = models.CharField(max_length=50)
     # hair_color = models.CharField(max_length=50)
     # individual_features = models.TextField()
-    position = models.ForeignKey(Position, related_name='positions', on_delete=models.CASCADE)
+    # position = models.ForeignKey(Position, related_name='positions', on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-            return self.id + " applicant"
+            return f"{self.id} - applicant"
     
 
     # we will need this json only to represent some of the applicants in the home/about pages
@@ -97,4 +97,19 @@ class Ad(models.Model):
         'title': self.title,
         'description': self.description,
         'photo': self.photo
+    }
+
+
+class ApplicantToPosition(models.Model):
+    applicant = models.ForeignKey(Form, on_delete=models.CASCADE, related_name="positions", blank=True, null=True)
+    position = models.ForeignKey(Position, on_delete=models.CASCADE, related_name="applicants", blank=True, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.applicant} - {self.position}"
+
+    def to_json(self):
+        return {
+        'id': self.id,
+        'applicant': self.applicant,
+        'position': self.position
     }

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Casting, Position, Form, Ad
+from api.models import ApplicantToPosition, Casting, Position, Form, Ad
 
 
 class CastingSerializer(serializers.Serializer):
@@ -73,12 +73,17 @@ class PositionSerializer2(serializers.ModelSerializer):
     casting = CastingSerializer()
     class Meta:
         model = Position
-        fields = ('name', 'requirements', 'casting')
+        fields = ('id', 'name', 'requirements', 'casting')
 
 
 class FormSerializer(serializers.ModelSerializer):
-    positon = PositionSerializer2()
     class Meta:
         model = Form
-        fields = "_all_"
+        fields = "__all__"
     
+class ApplicationsSerializer(serializers.ModelSerializer):
+    applicant = FormSerializer()
+    position = PositionSerializer2()
+    class Meta:
+        model = ApplicantToPosition
+        fields = "__all__"
