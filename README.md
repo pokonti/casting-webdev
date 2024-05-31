@@ -17,14 +17,5 @@ Whether you aspire to be a model, actor, or actress, our website is your launchp
 * Node.js and npm installed on your machine for Angular.
 * Python and pip installed for Django.
 
-### Setting Up a Project
-* Install the Angular CLI globally:
-```npm install -g @angular/cli```
-* Install the canvas-confetti library:
-```npm install canvas-confetti```
-* Run the application:
-```cd dogs-app ```
-```ng serve```
-
 ## Team
 Team members: Aknur, Firuza, Dina
