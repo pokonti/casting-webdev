@@ -67,19 +67,6 @@ def casting_positions(request, id):
     return JsonResponse(serializer.data, safe=False, status=200)
   
 
-class PositionstListAPIView(APIView):
-    def get(sef, request):
-        positions = Position.objects.all()
-        serializer = PositionSerializer(positions, many=True)
-        return Response(serializer.data)
-
-
-    def post(self, request):
-        serializer = PositionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
 
 class PositionsDetailAPIView(APIView):
@@ -165,9 +152,15 @@ def casting_details(request, id=None):
         return JsonResponse(serializer.data)
     elif request.method == "PUT":
         data = json.loads(request.body)
-        casting.name = data.get("name")
-        casting.save()
-        return JsonResponse(casting.to_json(), safe=False)
+        serializer = CastingSerializer(
+            instance=casting,
+            data=data
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
     elif request.method == "DELETE":
         casting.delete()
         return JsonResponse({"deleted": True})

@@ -4,6 +4,45 @@
     <p>Tell us about yourself</p>
 </div>
 
+<!-- casting-form.component.html -->
+
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label>
+        First Name:
+        <input type="text" [(ngModel)]="profile.first_name" name="firstName" required>
+      </label>
+    </div>
+    <div>
+      <label>
+        Last Name:
+        <input type="text" [(ngModel)]="profile.last_name" name="lastName" required>
+      </label>
+    </div>
+    <div>
+      <label>
+        Gender:
+        <select [(ngModel)]="profile.gender" name="gender" required>
+          <option value="">Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>
+        Date of Birth:
+        <input type="number" [(ngModel)]="profile.date_of_birth_day" name="dateOfBirthDay" placeholder="Day" required>
+        <input type="number" [(ngModel)]="profile.date_of_birth_month" name="dateOfBirthMonth" placeholder="Month" required>
+        <input type="number" [(ngModel)]="profile.date_of_birth_year" name="dateOfBirthYear" placeholder="Year" required>
+      </label>
+    </div>
+    <button type="submit">Create Casting</button>
+  </form>
+  <h1>{{positionId}}</h1>
+  <h1>Casting id: {{position.casting.id}}</h1>
+  
+
 <div class="container">
     <form id="survey-form" method="POST">
         <h2>General Information</h2>
@@ -12,21 +51,21 @@
             <label>* First Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text" name="first_name" [(ngModel)]="first_name"  [ngModelOptions]="{standalone: true}" placeholder="Enter your first name" required autofocus>
+            <!-- <input class="input-field" type="text" name="first_name" [(ngModel)]="first_name"  [ngModelOptions]="{standalone: true}" placeholder="Enter your first name" required autofocus> -->
         </div>
         <!-- last name -->
         <div class="labels">
             <label>* Last Name</label>
         </div>  
         <div class="input-tab">
-            <input class="input-field" type="text" [(ngModel)]="last_name" name="last_name" [ngModelOptions]="{standalone: true}" placeholder="Enter your last name" required>
+            <!-- <input class="input-field" type="text" [(ngModel)]="last_name" name="last_name" [ngModelOptions]="{standalone: true}" placeholder="Enter your last name" required> -->
         </div>
 
         <!-- gender -->
         <div class="labels">
             <label>*Gender</label>
         </div>
-        <div class="input-tab">
+        <!-- <div class="input-tab">
             <select [(ngModel)]="gender" name="gender" [ngModelOptions]="{standalone: true}">
                 @for(g of genders; track $index){
                     <option [value]="g">
@@ -34,7 +73,7 @@
                     </option>
                 }
             </select>
-        </div>
+        </div> -->
 
          <!-- birth -->
         <!-- <div class="labels">
@@ -275,7 +314,8 @@
         </div> --> 
 
 
-        <button (click)="addProfile()">Send</button>
+        <!-- <button (click)="addProfile()">Send</button> -->
+        <button type="submit">Create Casting</button>
     </form>
 
 </div>

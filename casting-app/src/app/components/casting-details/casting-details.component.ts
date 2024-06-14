@@ -28,8 +28,5 @@ export class CastingDetailsComponent implements OnInit{
     })
   }
 
-  // getPositionById(){
-  //   this.myService.getPositionById()
-  // }
 
 }

@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
 import { FormsModule } from '@angular/forms';
-
-
-class Profile{
-    constructor(public first_name: string,
-        public last_name: string,
-        public gender: string)
-    { }
-}
+import { AllservicesService } from '../../services/allservices.service';
+import { Position, Profile, ProfileAndPosition } from '../../interfaces/api';
+import { ActivatedRoute } from '@angular/router';
+import { response } from 'express';
+import { error } from 'console';
 
 @Component({
     selector: 'app-form',
@@ -17,24 +14,68 @@ class Profile{
     styleUrl: './form.component.css',
     imports: [FooterComponent, FormsModule]
 })
-export class FormComponent implements OnInit{
- 
-    first_name: string = '';
-    last_name: string = '';
-    gender: string = '';
-    genders: string[] = ["Male", "Female"];
-    dd!: number;
-    mm!: number;
-    yyyy!: number;
-    users: Profile[] = [];
+export class FormComponent{
+    positionId: number = 0;
+
+    position: Position = {
+        id: 0,
+        name: '',
+        requirements: '',
+        casting: {
+            id: 0,
+            name: '',
+            description: '',
+            photo: ''
+        }
+    };
+
+    profile: Profile = {
+        first_name: '',
+        last_name: '',
+        gender: '',
+        date_of_birth_day: 0,
+        date_of_birth_month: 0,
+        date_of_birth_year: 0
+    };
+
+    constructor(private service: AllservicesService, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        console.log(this.users)
+        this.route.queryParams.subscribe(params => {
+          this.positionId = +params['positionId'];
+        });
+        this.getPositionInfo();
     }
 
-    addProfile(){
-        this.users.push(new Profile(this.first_name, this.last_name, this.gender));
+    getPositionInfo(){
+        this.service.getPositionById(this.positionId).subscribe(position => {
+            this.position = position;
+        });
     }
+      
+    onSubmit(): void {
+        const data: ProfileAndPosition = {
+            applicant: this.profile,
+            position: this.position
+        };
+        
+        console.log('Submitting data:', data);
+
+        // this.service.createCasting(this.profile).subscribe(
+        //     response => console.log('Form created successfully:', response),
+        //     error => console.error('Error sending form:', error)
+        // );
+        this.service.connectPositionWithApplicant(data).subscribe(
+            response => console.log('Data is sent successfully:', response),
+            error => console.error('Error:', error)
+        );
+      }
+
+
+
+
+
+    
 
 
     

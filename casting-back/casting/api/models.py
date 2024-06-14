@@ -22,7 +22,7 @@ class Casting(models.Model):
 class Position(models.Model):
     name = models.CharField(max_length=300)
     requirements = models.TextField()
-    casting = models.ForeignKey(Casting, related_name='positions', on_delete=models.CASCADE)
+    casting = models.ForeignKey(Casting, related_name='positions', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.id} - {self.name}"

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ad, Casting, Position } from '../interfaces/api';
+import { Ad, Casting, Position, Profile, ProfileAndPosition } from '../interfaces/api';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -32,11 +32,20 @@ export class AllservicesService {
   }
 
   getPositionById(id: number){
-    return this.http.get<Position>(`${this.BASE_URL}/positions/${id}`)
+    return this.http.get<Position>(`${this.BASE_URL}/positions/${id}/`)
   }
 
   getAds(){
     return this.http.get<Ad[]>(`${this.BASE_URL}/ads`)
+  }
+
+
+  createCasting(profile:Profile){
+    return this.http.post<Profile>(`${this.BASE_URL}/forms`, profile)
+  }
+
+  connectPositionWithApplicant(data:ProfileAndPosition){
+    return this.http.post<ProfileAndPosition>(`${this.BASE_URL}/applicantions/`, data)
   }
 
 }
