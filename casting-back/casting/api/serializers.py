@@ -87,6 +87,7 @@ class ApplicationsSerializer(serializers.ModelSerializer):
             # Retrieve or create Form instance based on provided data
             applicant_instance, created = Form.objects.get_or_create(**applicant_data)
         except Exception as e:
+            
             raise serializers.ValidationError(f"Error fetching or creating Form: {str(e)}")
 
         # position_instance = Position.objects.get_or_create(**position_data)
