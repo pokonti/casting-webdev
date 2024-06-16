@@ -10,6 +10,8 @@ import {ModelingComponent} from "./components/modeling/modeling.component";
 import {FilmingComponent} from "./components/filming/filming.component";
 import {DanceComponent} from "./components/dance/dance.component";
 import { CastingDetailsComponent } from './components/casting-details/casting-details.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
 
@@ -30,7 +32,7 @@ export const routes: Routes = [
     },
     {
         path : 'profile',  
-        component: FormComponent , 
+        component: ProfileComponent , 
     },
     {
         path : 'form',  
@@ -61,11 +63,11 @@ export const routes: Routes = [
         component:  DanceComponent, 
         title: 'Casting'
     },
-    // {
-    //     path : 'logIn',  
-    //     component:  HomeComponent , 
-    //     title: 'Log in'
-    // },
+    {
+        path : 'login',  
+        component:  LoginComponent , 
+        title: 'Log in'
+    },
     {
         path : 'casting/:id', 
         component:  CastingDetailsComponent, 

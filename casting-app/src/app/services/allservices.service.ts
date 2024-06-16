@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ad, Casting, Position, Profile, ProfileAndPosition } from '../interfaces/api';
+import { Ad, Casting, Position, Profile, ProfileAndPosition, Token, User } from '../interfaces/api';
 import { map } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,4 +49,25 @@ export class AllservicesService {
     return this.http.post<ProfileAndPosition>(`${this.BASE_URL}/applicantions/`, data)
   }
 
+  login(username: string, password: string){
+    return this.http.post<Token>(`${this.BASE_URL}/login/`, {username, password})
+  }
+
+  profileData(user_id: number){
+    return this.http.get<Profile>(`${this.BASE_URL}/forms/${user_id}`)
+  }
+
+  
+  
+  getProfile() {
+    const access = localStorage.getItem("access");
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${access}`
+    });
+    return this.http.get<User>(`${this.BASE_URL}/profile/`, { headers });
+  }
+
+  getPofileData(user_id: number) {
+    return this.http.get<Profile>(`${this.BASE_URL}/forms/${user_id}`)
+  }
 }

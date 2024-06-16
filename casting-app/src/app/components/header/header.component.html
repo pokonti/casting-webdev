@@ -4,20 +4,20 @@
     <nav>
         <ul>
             <!-- <li><a routerLink="/form" routerLinkActive="active">Form</a></li> -->
-            <li><a>Casting &triangledown;</a>
-                <ul>
-                    <li><a routerLink="casting" routerLinkActive="active">All</a></li>
-                    <li><a routerLink="casting/modeling" routerLinkActive="active">Modeling</a></li>
+            <li><a routerLink="casting" routerLinkActive="active">Casting</a>
+                <!-- <ul> -->
+                    <!-- <li><a routerLink="casting" routerLinkActive="active">All</a></li> -->
+                    <!-- <li><a routerLink="casting/modeling" routerLinkActive="active">Modeling</a></li>
                     <li><a routerLink="casting/filming" routerLinkActive="active">Filming</a></li>
-                    <li><a routerLink="casting/dance" routerLinkActive="active">Dance</a></li>
-                </ul>
+                    <li><a routerLink="casting/dance" routerLinkActive="active">Dance</a></li> -->
+                <!-- </ul> -->
             </li>
 
             <li><a routerLink="/ads" routerLinkActive="active">Ads</a></li>
             <li><a routerLink="/aboutUs" routerLinkActive="active" ariaCurrentWhenActive="page">About us</a></li>
-            <li><a routerLink="/login" routerLinkActive="active">Log in</a></li>
-            <li><a routerLink="/logout" routerLinkActive="active">Log out</a></li>
-            <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+            <li *ngIf="!logged"><a routerLink="/login">Log in</a></li>
+            <li *ngIf="logged"><a routerLink="#" (click)="logout()">Log out</a></li>
+            <li *ngIf="logged"><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
         </ul>
     </nav>
 </header>

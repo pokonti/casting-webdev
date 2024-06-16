@@ -82,6 +82,32 @@ def form_list(request):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(["GET", "PUT", "DELETE"])
+def form_details(request, id=None):
+    try:
+        form = Form.objects.get(user=id)
+    except Casting.DoesNotExist as e:
+        return Response({"error":str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    
+    if request.method == "GET":
+        serializer = FormSerializer(form)
+        return Response(serializer.data)
+    elif request.method == "PUT":
+      
+        serializer = FormSerializer(
+            instance=form,
+            data=request.data
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == "DELETE":
+        form.delete()
+        return Response({"deleted": True})
+
+
 
 # a table of Profile and Position      
 @api_view(["GET", "POST"])

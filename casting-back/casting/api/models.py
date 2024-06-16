@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth.models import User
 
 
 class Casting(models.Model):
@@ -43,6 +42,9 @@ class Form(models.Model):
     date_of_birth_day = models.IntegerField()
     date_of_birth_month = models.IntegerField()
     date_of_birth_year = models.IntegerField()
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='forms', null=True, blank=True)
+    
     # nationality = models.CharField(max_length=50)
     # email = models.EmailField()
     # phone = models.CharField(max_length=20)

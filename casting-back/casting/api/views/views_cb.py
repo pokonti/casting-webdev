@@ -1,9 +1,10 @@
 
 from rest_framework.response import Response
-from api.serializers import AdSerializer, PositionSerializer
+from api.serializers import AdSerializer, PositionSerializer, UserSerializer
 from rest_framework import status
 from rest_framework.views import APIView
-from api.models import Ad, Position
+from rest_framework.permissions import IsAuthenticated
+from api.models import Ad, Casting, Position
 
 
 class PositionListAPIView(APIView):
@@ -34,37 +35,36 @@ class AdListAPIView(APIView):
 
 
 
+class CastingPositionsView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get_casting(self, id):
+        try:
+            return Casting.objects.get(id=id)
+        except Casting.DoesNotExist as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, id):
+        casting = self.get_casting(id)
+
+        positions = Position.objects.filter(casting=casting)
+        serializer = PositionSerializer(positions, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, id):
+        casting = self.get_casting(id)
+      
+        serializer = PositionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(casting=casting)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# class PositionsDetailAPIView(APIView):
-#     def get(self, request, id=None):
-#         try:
-#             position = Position.objects.get(id=id)
-#         except Position.DoesNotExist as e:
-#             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
 
-#         serializer = PositionSerializer2(position)
-#         return Response(serializer.data)
-
-#     def put(self, request, id=None):
-#         try:
-#             position = Position.objects.get(id=id)
-#         except Position.DoesNotExist as e:
-#             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
-
-#         serializer = PositionSerializer2(instance=position, data=request.data)
-
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
-
-#     def delete(self, request, id=None):
-#         try:
-#             position = Position.objects.get(id=id)
-#         except Position.DoesNotExist as e:
-#             return Response({"error": str(e)}, status.HTTP_404_NOT_FOUND)
-
-#         position.delete()
-#         return Response({"deleted": True})
-
+    def get(self, request):
+        user = request.user
+        serializer = UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)

@@ -1,6 +1,7 @@
+from sqlite3 import IntegrityError
 from rest_framework import serializers
 from api.models import ApplicantToPosition, Casting, Position, Form, Ad
-
+from django.contrib.auth.models import User
 
 class CastingSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -68,8 +69,13 @@ class PositionSerializer(serializers.ModelSerializer):
 class FormSerializer(serializers.ModelSerializer):
     class Meta:
         model = Form
-        fields = "__all__"
-    
+        fields = ['id', 'first_name', 'last_name', 'gender', 'date_of_birth_day', 'date_of_birth_month', 'date_of_birth_year', 'user']
+        read_only_fields = ['user']
+
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return super().create(**validated_data)
+   
 class ApplicationsSerializer(serializers.ModelSerializer):
     applicant = FormSerializer()
     position = PositionSerializer()
@@ -87,7 +93,6 @@ class ApplicationsSerializer(serializers.ModelSerializer):
             # Retrieve or create Form instance based on provided data
             applicant_instance, created = Form.objects.get_or_create(**applicant_data)
         except Exception as e:
-            
             raise serializers.ValidationError(f"Error fetching or creating Form: {str(e)}")
 
         # position_instance = Position.objects.get_or_create(**position_data)
@@ -112,3 +117,9 @@ class ApplicationsSerializer(serializers.ModelSerializer):
     #     position = Position.objects.get(id=position_id)
     #     validated_data['position'] = position  # Populate position data
     #     return super().create(validated_data)
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'first_name', 'last_name']

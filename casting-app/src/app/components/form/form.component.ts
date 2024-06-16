@@ -35,7 +35,7 @@ export class FormComponent{
         gender: '',
         date_of_birth_day: 0,
         date_of_birth_month: 0,
-        date_of_birth_year: 0
+        date_of_birth_year: 0,
     };
 
     constructor(private service: AllservicesService, private route: ActivatedRoute) { }
@@ -59,7 +59,7 @@ export class FormComponent{
             position: this.position
         };
         
-        console.log('Submitting data:', data);
+        // console.log('Submitting data:', data);
 
         // this.service.createCasting(this.profile).subscribe(
         //     response => console.log('Form created successfully:', response),
@@ -69,6 +69,15 @@ export class FormComponent{
             response => console.log('Data is sent successfully:', response),
             error => console.error('Error:', error)
         );
+        // empty fields again
+        this.profile = {
+            first_name: '',
+            last_name: '',
+            gender: '',
+            date_of_birth_day: 0,
+            date_of_birth_month: 0,
+            date_of_birth_year: 0,
+        };
       }
 
 
