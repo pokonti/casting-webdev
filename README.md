@@ -2,6 +2,16 @@
 ## Description
 Welcome to Casting, here you can see all the castings at the moment. 
 Whether you aspire to be a model, actor, or actress, our website is your launchpad into the world of opportunities. Browse exciting roles, submit applications effortlessly, and embark on your journey to stardom with us.
+
+### Home page
+![screenshot](homepage.png)
+### Casting page
+![screenshot](castings.png)
+### Login page
+![screenshot](login.png)
+### After logged in - Positions page
+![screenshot](afterlogin.png)
+
 ## Features
 * Explore Exciting Roles: Browse through a diverse range of casting opportunities tailored for models, actors, and actresses.
 * Effortless Application: Submit your applications seamlessly directly through our platform.
